@@ -1,0 +1,31 @@
+
+
+
+Module Board :
+Initialisation du Plateau :
+
+Tâche élémentaire : Créer une grille vide de la taille spécifiée.
+Placement d'une Lettre sur le Plateau :
+
+Tâche élémentaire : Ajouter une lettre à une position spécifique sur le plateau.
+Vérification de la Validité d'une Position :
+
+Tâche élémentaire : Vérifier si une position spécifique sur le plateau est valide pour placer une lettre.
+Placement d'un Mot sur le Plateau :
+
+Tâche élémentaire : Placer un mot sur le plateau en utilisant les tâches précédentes.
+Validation des Coordonnées du Mot :
+
+Tâche élémentaire : Vérifier si les coordonnées spécifiées pour le placement du mot sont valides.
+Validation du Chevauchement des Mots :
+
+Tâche élémentaire : Vérifier si le chevauchement des lettres lors du placement d'un mot est conforme aux règles du Scrabble.
+Récupération des Lettres à une Position :
+
+Tâche élémentaire : Récupérer les lettres présentes à une position spécifique sur le plateau.
+Affichage du Plateau :
+
+Tâche élémentaire : Afficher le plateau dans la console.
+Validation des Mots sur le Plateau :
+
+Tâche élémentaire : Valider les mots présents sur le plateau en utilisant le dictionnaire.

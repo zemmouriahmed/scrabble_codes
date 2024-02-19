@@ -1,0 +1,30 @@
+
+Dans le code fourni, plusieurs éléments doivent encore être définis ou implémentés en fonction des spécificités de votre jeu de Scrabble. Voici une liste des éléments qui peuvent nécessiter une définition ou une implémentation supplémentaire :
+
+Affichage du Plateau (fonction display_board) :
+
+La fonction display_board est actuellement définie comme une passe. Vous devrez créer une fonction qui affiche le plateau de Scrabble avec ses cases spéciales, lettres, etc.
+Placer un Mot sur le Plateau :
+
+Dans la partie où le joueur choisit un mot (chosen_word), il n'y a actuellement pas de logique pour placer ce mot sur le plateau. Vous devrez ajouter une fonctionnalité pour cela, en prenant en compte les règles du Scrabble.
+Calcul des Points (partie manquante après avoir placé un mot) :
+
+Après avoir placé un mot sur le plateau, vous devez ajouter une logique pour calculer les points du joueur en fonction des lettres utilisées et des cases spéciales du plateau.
+Gestion des Tours des Joueurs :
+
+Actuellement, le code ne gère qu'un seul tour pour chaque joueur. Vous devrez étendre la logique pour gérer plusieurs tours jusqu'à la fin du jeu.
+Fin du Jeu :
+
+Définir les conditions de fin du jeu, par exemple, lorsque le sac de lettres est vide et qu'aucun joueur ne peut former un mot avec les lettres restantes.
+Interface Utilisateur (UI) Améliorée :
+
+Si vous envisagez de créer une interface utilisateur plus avancée (par exemple, une interface graphique), vous devrez mettre en place cette interface pour faciliter l'interaction avec les joueurs.
+Tests et Validation :
+
+Testez le code avec différentes situations pour vous assurer que toutes les fonctionnalités sont correctement implémentées. Vous pourriez également ajouter des mécanismes de validation supplémentaires pour garantir la conformité aux règles du Scrabble.
+N'oubliez pas que cette implémentation est assez basique et peut être étendue en fonction de vos besoins spécifiques et de la complexité que vous souhaitez ajouter à votre jeu de Scrabble.
+
+
+
+
+
