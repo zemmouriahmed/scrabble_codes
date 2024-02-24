@@ -16,32 +16,36 @@ class PlayTile(QLabel):
     def setText(self, a0: str | None) -> None:
         self.letter = a0
         return super().setText(a0)
-    
+def mousePressEvent(self, event):
+    # Sauvegarde de la position initiale pour vérifier si l'utilisateur commence à glisser
+    if event.button() == Qt.LeftButton:
+        self.drag_start_position = event.pos()
+  
+   
 def mouseMoveEvent(self, event):
-    if not (event.buttons() & Qt.LeftButton):
+    if event.buttons() != Qt.LeftButton:
         return
     if (event.pos() - self.drag_start_position).manhattanLength() < QApplication.startDragDistance():
         return
 
-    # Préparer les données de glissement
+    # Modifier l'apparence de la tuile pour l'agrandissement avant de commencer le glissement
+    self.setStyleSheet("background-color: lightgrey; border: 1px solid black; transform: scale(1.2);")
+
+    mimeData = QMimeData()
+    mimeData.setText(self.text())
+
     drag = QDrag(self)
-    mimedata = QMimeData()
-    mimedata.setText(self.letter)
-    drag.setMimeData(mimedata)
+    drag.setMimeData(mimeData)
+    pixmap = self.grab()
+    drag.setPixmap(pixmap)
+    drag.setHotSpot(event.pos() - self.rect().topLeft())
 
-    # Modifier visuellement la tuile pour indiquer qu'elle est sélectionnée
-    # Exemple : Agrandissement et ajout d'une bordure
-    self.setStyleSheet('background-color: lightgrey; border: 2px solid blue;')
-    self.setFixedSize(45, 45)  # Agrandissement léger pour l'effet visuel
+    # Exécuter l'opération de glissement
+    dropAction = drag.exec_(Qt.MoveAction)
 
-    # Exécution du glissement
-    if drag.exec_(Qt.MoveAction) == Qt.MoveAction:
-        # La tuile a été déposée : vous pourriez vouloir la cacher ou la supprimer ici
-        pass
-    else:
-        # Le glissement est terminé sans dépôt : réinitialiser l'apparence de la tuile
-        self.setStyleSheet('background-color: lightgrey; border: 1px solid black;')
-        self.setFixedSize(40, 40)  # Taille originale
+    # Réinitialiser l'apparence de la tuile après le glissement
+    self.setStyleSheet("background-color: lightgrey; border: 1px solid black;")
+
 
 
 class ClickableLabel(QLabel):
@@ -78,14 +82,7 @@ class ClickableLabel(QLabel):
             self.setStyleSheet('background-color: ' + ClickableLabel.COLORS.get(self.type, "whitesmoke"))
             self.setAcceptDrops(True) 
 
-    def mousePressEvent(self, event):
-        if event.button() == Qt.LeftButton:
-            self.clicked.emit(self.row, self.col)
-        elif event.button() == Qt.RightButton:
-            if self.value is not None:
-                self.value = None
-                self.mode = "EMPTY"
-                self.refreshTile()
+
 
     def dragEnterEvent(self, e):
         # self.setStyleSheet("background: gray")
